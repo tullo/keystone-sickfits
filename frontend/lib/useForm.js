@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 
 export default function useForm(initial = {}) {
+  // create a state object for inputs
   const [inputs, setInputs] = useState(initial);
+
+  // needed to prevent React from looping infintly => useEffect.
   const initialValues = Object.values(initial).join('');
 
   useEffect(() => {
+    // triggered when watched state changes => initialValues.
     setInputs(initial);
   }, [initialValues]);
 
@@ -34,6 +38,7 @@ export default function useForm(initial = {}) {
     setInputs(blankState);
   }
 
+  // return the things we want to surface from this custom hook.
   return {
     inputs,
     handleChange,
