@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { config, createSchema } from '@keystone-next/keystone/schema';
 import { createAuth } from '@keystone-next/auth';
 import {
@@ -7,9 +8,10 @@ import {
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
-import 'dotenv/config';
 import { sendPasswordResetEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://keystone-sick-fits-tutorial';
@@ -28,7 +30,6 @@ const { withAuth } = createAuth({
   },
   passwordResetLink: {
     async sendToken(args) {
-      console.log({
         itemId: args.itemId,
         toker: args.token,
         identity: args.identity,
@@ -61,7 +62,9 @@ export default withAuth(
       User,
       Product,
       ProductImage,
+      CartItem,
     }),
+    extendGraphqlSchema,
     ui: {
       isAccessAllowed: (session) =>
         // console.log(session?.data);

@@ -7,14 +7,30 @@ const CURRENT_USER_QUERY = gql`
         id
         email
         name
+        cart {
+          id
+          quantity
+          product {
+            id
+            price
+            name
+            description
+            photo {
+              image {
+                publicUrlTransformed
+              }
+            }
+          }
+        }
       }
     }
   }
 `;
 
+export { CURRENT_USER_QUERY };
+
+// Custom Hook
 export default function useUser() {
   const { data } = useQuery(CURRENT_USER_QUERY);
   return data?.authenticatedItem; // returns (null || authenticatedItem)
 }
-
-export { CURRENT_USER_QUERY };

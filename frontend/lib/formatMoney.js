@@ -5,8 +5,8 @@ export default function formatMoney(amount = 0) {
     minimumFractionDigits: 2,
   };
 
-  // check if its a clean danish krone amount
   if (amount % 100 === 0) {
+    // its a clean danish krone amount
     options.minimumFractionDigits = 0;
   }
 
