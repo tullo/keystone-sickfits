@@ -9,9 +9,13 @@ import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
 import { CartItem } from './schemas/CartItem';
+import { OrderItem } from './schemas/OrderItem';
+import { Order } from './schemas/Order';
+import { Role } from './schemas/Role';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
+import { permissionsList } from './schemas/fields';
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://keystone-sick-fits-tutorial';
@@ -63,16 +67,20 @@ export default withAuth(
       Product,
       ProductImage,
       CartItem,
+      OrderItem,
+      Order,
+      Role,
     }),
     extendGraphqlSchema,
     ui: {
-      isAccessAllowed: (session) =>
+      // Show the UI only for poeple who pass this test
+      isAccessAllowed: ({ session }) =>
         // console.log(session?.data);
         !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      // GraphQL query
-      User: 'id',
+      // GraphQL Query
+      User: `id name email role { ${permissionsList.join(' ')} }`,
     }),
   })
 );
