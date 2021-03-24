@@ -7,10 +7,11 @@ import calcTotalPrice from '../lib/calcTotalPrice';
 import { useCart } from '../lib/cartState';
 import useUser from './User';
 import RemoveFromCart from './RemoveFromCart';
+import { Checkout } from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
-  border-bottom: 1px solid var(--lightGrey);
+  border-bottom: 1px solid var(--lightGray);
   display: grid;
   grid-template-columns: auto 1fr auto;
   img {
@@ -63,6 +64,7 @@ export default function Cart() {
       </ul>
       <footer>
         <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+        <Checkout />
       </footer>
     </CartStyles>
   );
