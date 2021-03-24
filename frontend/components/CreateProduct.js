@@ -36,8 +36,8 @@ export default function CreateProduct() {
   const { inputs, handleChange, clearForm, resetForm } = useForm({
     image: '',
     name: 'Nice Shoes',
-    price: 2334,
-    description: 'These are the bedst shoes on earth.',
+    price: 34234,
+    description: 'These are the best shoes!',
   });
   const [createProduct, { loading, error, data }] = useMutation(
     CREATE_PRODUCT_MUTATION,
@@ -56,8 +56,8 @@ export default function CreateProduct() {
         const res = await createProduct();
         clearForm();
         router.push({
-          // Display the created product.
-          pathname: `/products/${res.data.createProduct.id}`,
+          // Display the product just created.
+          pathname: `/product/${res.data.createProduct.id}`,
         });
       }}
     >
