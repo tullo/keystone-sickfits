@@ -19,7 +19,7 @@
     "@stripe/stripe-js": "^1.46.0",
     "apollo-upload-client": "^17.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-plugin-styled-components": "^1.12.0",
+    "babel-plugin-styled-components": "^2.0.0",
     "date-fns": "^2.29.3",
     "downshift": "^7.0.5",
     "graphql": "^16.6.0",
