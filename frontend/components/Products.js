@@ -1,6 +1,7 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { perPage } from '../config';
 import Product from './Product';
 
@@ -26,6 +27,14 @@ const ProductsListStyles = styled.div`
   grid-template-columns: 1fr 1fr;
   grid-gap: 60px;
 `;
+
+Products.defaultProps = {
+  page: '',
+};
+
+Products.propTypes = {
+  page: PropTypes.number,
+};
 
 export default function Products({ page }) {
   // console.log(data, error, loading);

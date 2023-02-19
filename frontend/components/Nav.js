@@ -28,11 +28,7 @@ export default function Nav() {
           </button>
         </>
       )}
-      {!user && (
-        <>
-          <Link href="/signin">Sign In</Link>
-        </>
-      )}
+      {!user && <Link href="/signin">Sign In</Link>}
     </NavStyles>
   );
 }

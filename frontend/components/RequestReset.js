@@ -20,7 +20,7 @@ export default function RequestReset() {
   });
 
   // Mutation
-  const [userPasswordReset, { data, loading, error }] = useMutation(
+  const [userPasswordReset, { data, error }] = useMutation(
     REQUEST_RESET_MUTATION,
     {
       variables: inputs,
@@ -29,12 +29,14 @@ export default function RequestReset() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    // eslint-disable-next-line no-unused-vars
     const res = await userPasswordReset().catch(console.error);
     resetForm();
   }
 
   // Render
   return (
+    // eslint-disable-next-line react/jsx-no-bind
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Request a password reset</h2>
       <Error error={error} />

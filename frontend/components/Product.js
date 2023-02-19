@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import PropTypes from 'prop-types';
 import ItemStyles from './styles/ItemStyles';
 import Title from './styles/Title';
 import PriceTag from './styles/PriceTag';
@@ -6,10 +8,18 @@ import formatMoney from '../lib/formatMoney';
 import DeleteProduct from './DeleteProduct';
 import AddToCart from './AddToCart';
 
+Product.defaultProps = {
+  product: '',
+};
+
+Product.propTypes = {
+  product: PropTypes.object,
+};
+
 export default function Product({ product }) {
   return (
     <ItemStyles>
-      <img
+      <Image
         src={product?.photo?.image?.publicUrlTransformed}
         alt={product.name}
       />

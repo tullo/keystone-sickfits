@@ -3,6 +3,7 @@ import { resetIdCounter, useCombobox } from 'downshift';
 import debounce from 'lodash.debounce';
 import { useRouter } from 'next/dist/client/router';
 import gql from 'graphql-tag';
+import Image from 'next/image';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 
 const SEARCH_PRODUCTS_QUERY = gql`
@@ -28,12 +29,9 @@ const SEARCH_PRODUCTS_QUERY = gql`
 
 export default function Search() {
   const router = useRouter();
-  const [findItems, { loading, data, error }] = useLazyQuery(
-    SEARCH_PRODUCTS_QUERY,
-    {
-      fetchPolicy: 'no-cache',
-    }
-  );
+  const [findItems, { loading, data }] = useLazyQuery(SEARCH_PRODUCTS_QUERY, {
+    fetchPolicy: 'no-cache',
+  });
   const items = data?.searchTerms || [];
   const findItemsButChill = debounce(findItems, 350);
   resetIdCounter();
@@ -82,7 +80,7 @@ export default function Search() {
               key={item.id}
               highlighted={index === highlightedIndex}
             >
-              <img
+              <Image
                 src={item.photo.image.publicUrlTransformed}
                 alt={item.name}
                 width="50"

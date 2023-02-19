@@ -1,6 +1,8 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
+import Image from 'next/image';
 import OrderStyles from '../../components/styles/OrderStyles';
 import ErrorMessage from '../../components/ErrorMessage';
 import formatMoney from '../../lib/formatMoney';
@@ -29,6 +31,14 @@ const SINGLE_ORDER_QUERY = gql`
     }
   }
 `;
+
+SingleOrderPage.defaultProps = {
+  query: '',
+};
+
+SingleOrderPage.propTypes = {
+  query: PropTypes.object,
+};
 
 function SingleOrderPage({ query }) {
   const { data, error, loading } = useQuery(SINGLE_ORDER_QUERY, {
@@ -61,7 +71,10 @@ function SingleOrderPage({ query }) {
       <div className="items">
         {order.items.map((item) => (
           <div className="order-item" key={item.id}>
-            <img src={item.photo.image.publicUrlTransformed} alt={item.title} />
+            <Image
+              src={item.photo.image.publicUrlTransformed}
+              alt={item.title}
+            />
             <div className="item-details">
               <h2>{item.name}</h2>
               <p>Qty: {item.quantity}</p>

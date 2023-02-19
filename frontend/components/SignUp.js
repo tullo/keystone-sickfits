@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import Form from './styles/Form';
-import { CURRENT_USER_QUERY } from './User';
 import useForm from '../lib/useForm';
 import Error from './ErrorMessage';
 
@@ -26,17 +25,19 @@ export default function SignUp() {
     password: '',
   });
 
-  const [signup, { data, loading, error }] = useMutation(SIGNUP_MUTATION, {
+  const [signup, { data, error }] = useMutation(SIGNUP_MUTATION, {
     variables: inputs,
   });
 
   async function handleSubmit(e) {
     e.preventDefault();
     // Send the email and password to the graphql API
+    // eslint-disable-next-line no-unused-vars
     const res = await signup().catch(console.error);
     resetForm();
   }
   return (
+    // eslint-disable-next-line react/jsx-no-bind
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign up for an account</h2>
       <Error error={error} />

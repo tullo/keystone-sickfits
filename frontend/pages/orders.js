@@ -3,6 +3,7 @@ import gql from 'graphql-tag';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Link from 'next/link';
+import Image from 'next/image';
 import ErrorMessage from '../components/ErrorMessage';
 import formatMoney from '../lib/formatMoney';
 import OrderItemStyles from '../components/styles/OrderItemStyles';
@@ -71,7 +72,7 @@ function OrdersPage() {
                 </div>
                 <div className="images">
                   {order.items.map((item) => (
-                    <img
+                    <Image
                       key={`image-${item.id}`}
                       src={item.photo?.image?.publicUrlTransformed}
                       alt={item.name}

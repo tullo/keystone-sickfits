@@ -1,7 +1,16 @@
 import { createContext, useContext, useState } from 'react';
+import PropTypes from 'prop-types';
 
 const LocalStateContext = createContext();
 const LocalStateProvider = LocalStateContext.Provider;
+
+CartStateProvider.defaultProps = {
+  children: '',
+};
+
+CartStateProvider.propTypes = {
+  children: PropTypes.object,
+};
 
 // This is a custom local state provider.
 //

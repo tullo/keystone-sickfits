@@ -1,7 +1,9 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 import Head from 'next/head';
+import Image from 'next/image';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import DisplayError from './ErrorMessage';
 
 const ProductStyles = styled.div`
@@ -36,6 +38,14 @@ const SINGLE_ITEM_QUERY = gql`
   }
 `;
 
+SingleProduct.defaultProps = {
+  id: '',
+};
+
+SingleProduct.propTypes = {
+  id: PropTypes.number,
+};
+
 export default function SingleProduct({ id }) {
   const { data, loading, error } = useQuery(SINGLE_ITEM_QUERY, {
     variables: {
@@ -51,7 +61,7 @@ export default function SingleProduct({ id }) {
       <Head>
         <title>Sick Fits | {Product.name}</title>
       </Head>
-      <img
+      <Image
         src={Product.photo.image.publicUrlTransformed}
         alt={Product.photo.altText}
       />

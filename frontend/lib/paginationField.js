@@ -3,7 +3,7 @@ import { PAGINATION_QUERY } from '../components/Pagination';
 export default function paginationField() {
   return {
     keyArgs: false,
-    read(existing = [], { args, cache }) {
+    read({ args, cache }, existing = []) {
       console.log({ existing, args, cache });
       const { skip, first } = args;
 
@@ -40,7 +40,7 @@ export default function paginationField() {
       return false; // fallback to network
     },
     merge(existing, incoming, { args }) {
-      const { skip, first } = args;
+      const { skip } = args;
       // this runs when the apollo client comes back from the network with our product
       console.log(`Merging items from the network ${incoming.length}`);
       const merged = existing ? existing.slice(0) : [];

@@ -1,5 +1,6 @@
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Dot = styled.div`
   background: var(--red);
@@ -36,6 +37,14 @@ const AnimationStyles = styled.span`
     transform: scale(4) rotateX(0.5turn);
   }
 `;
+
+CartCount.defaultProps = {
+  count: '',
+};
+
+CartCount.propTypes = {
+  count: PropTypes.number,
+};
 
 export default function CartCount({ count }) {
   return (

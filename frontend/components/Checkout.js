@@ -42,6 +42,7 @@ const CREATE_ORDER_MUTATION = gql`
 
 function CheckoutForm() {
   const [error, setError] = useState();
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
@@ -113,6 +114,7 @@ function CheckoutForm() {
   }
 
   return (
+    // eslint-disable-next-line react/jsx-no-bind
     <CheckoutFormStyles onSubmit={handleSubmit}>
       {error && <p style={{ fontSize: 12 }}>{error.message}</p>}
       {graphQLError && <p style={{ fontSize: 12 }}>{graphQLError.message}</p>}

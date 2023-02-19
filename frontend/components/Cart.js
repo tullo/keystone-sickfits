@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Image from 'next/image';
 import CartStyles from './styles/CartStyles';
 import CloseButton from './styles/CloseButton';
 import Supreme from './styles/Supreme';
@@ -23,12 +25,20 @@ const CartItemStyles = styled.li`
   }
 `;
 
+CartItem.defaultProps = {
+  cartItem: '',
+};
+
+CartItem.propTypes = {
+  cartItem: PropTypes.object,
+};
+
 function CartItem({ cartItem }) {
   const { product } = cartItem;
   if (!product) return null;
   return (
     <CartItemStyles>
-      <img
+      <Image
         width="100"
         src={product.photo.image.publicUrlTransformed}
         alt={product.name}

@@ -16,10 +16,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "prettier.disableLanguages": [
-    "javascript",
-    "javascriptreact"
-  ],
   "emmet.showSuggestionsAsSnippets": true,
   "emmet.triggerExpansionOnTab": true
 }

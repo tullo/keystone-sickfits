@@ -32,7 +32,7 @@ export default function SignIn() {
   });
 
   // prepare GraphQL mutation with form inputs as variables
-  const [signin, { data, loading }] = useMutation(SIGNIN_MUTATION, {
+  const [signin, { data }] = useMutation(SIGNIN_MUTATION, {
     variables: inputs,
     // re-fetch the currently logged in user [updates our Nav in the UI]
     refetchQueries: [{ query: CURRENT_USER_QUERY }],
@@ -52,6 +52,7 @@ export default function SignIn() {
       : undefined;
 
   return (
+    // eslint-disable-next-line react/jsx-no-bind
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Sign into your account</h2>
       <Error error={error} />

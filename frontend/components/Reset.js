@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
+import PropTypes from 'prop-types';
 import Form from './styles/Form';
 import useForm from '../lib/useForm';
 import Error from './ErrorMessage';
@@ -21,6 +22,14 @@ const RESET_MUTATION = gql`
   }
 `;
 
+Reset.defaultProps = {
+  token: '',
+};
+
+Reset.propTypes = {
+  token: PropTypes.string,
+};
+
 export default function Reset({ token }) {
   const { inputs, handleChange, resetForm } = useForm({
     email: '',
@@ -28,7 +37,7 @@ export default function Reset({ token }) {
     token,
   });
 
-  const [reset, { data, loading, error }] = useMutation(RESET_MUTATION, {
+  const [reset, { data, error }] = useMutation(RESET_MUTATION, {
     variables: inputs,
   });
 
@@ -38,11 +47,13 @@ export default function Reset({ token }) {
 
   async function handleSubmit(e) {
     e.preventDefault(); // stop the form from submitting
+    // eslint-disable-next-line no-unused-vars
     const res = await reset().catch(console.error);
     resetForm();
   }
 
   return (
+    // eslint-disable-next-line react/jsx-no-bind
     <Form method="POST" onSubmit={handleSubmit}>
       <h2>Reset Your Password</h2>
       <Error error={error || successfulError} />
