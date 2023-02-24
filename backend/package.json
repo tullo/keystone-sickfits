@@ -39,7 +39,7 @@
     "@keystone-6/cloudinary": "^6.0.0",
     "@keystone-6/core": "^4.0.0",
     "@keystone-6/document-renderer": "^1.1.1",
-    "@keystone-6/fields-document": "^6.0.0",
+    "@keystone-6/fields-document": "^7.0.0",
     "@keystonejs/server-side-graphql-client": "^2.1.2",
     "@prisma/engines-version": "^4.8.0-62.351fb726ff78e50c7d6db6331d66d4db0e378c53",
     "@types/nodemailer": "^6.4.7",
