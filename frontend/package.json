@@ -45,7 +45,7 @@
     "@eslint/eslintrc": "^2.0.0",
     "@next/eslint-plugin-next": "^13.1.6",
     "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^13.0.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.0.0",
     "babel-jest": "^29.0.0",
     "casual": "^1.6.2",
