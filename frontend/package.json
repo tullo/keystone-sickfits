@@ -22,7 +22,7 @@
     "babel-plugin-styled-components": "^2.0.0",
     "date-fns": "^2.29.3",
     "downshift": "^8.0.0",
-    "graphql": "^16.6.0",
+    "graphql": "^16.8.1",
     "graphql-tag": "^2.12.6",
     "graphql-upload": "^16.0.2",
     "lodash.debounce": "^4.0.8",
