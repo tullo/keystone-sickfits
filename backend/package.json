@@ -53,8 +53,8 @@
     "undici": "^6.0.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
     "@babel/eslint-parser": "^7.11.0",
     "eslint": "^9.0.0",
     "eslint-config-airbnb": "^19.0.0",
