@@ -59,7 +59,7 @@
     "eslint": "^9.0.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
     "eslint-config-wesbos": "^4.0.0",
     "eslint-plugin-html": "^8.0.0",
     "eslint-plugin-import": "^2.22.1",
