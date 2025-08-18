@@ -42,7 +42,7 @@
     "@keystone-6/fields-document": ">=9.1.1",
     "@keystonejs/server-side-graphql-client": "^2.1.2",
     "@prisma/engines-version": "^4.8.0-62.351fb726ff78e50c7d6db6331d66d4db0e378c53",
-    "@types/nodemailer": "^7.0.0",
+    "@types/nodemailer": "^6.4.14",
     "dotenv": "^17.0.0",
     "mongodb": "^6.0.0",
     "next": ">=15.3.4",
