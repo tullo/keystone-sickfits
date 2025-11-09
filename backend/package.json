@@ -44,7 +44,7 @@
     "@prisma/engines-version": "^4.8.0-62.351fb726ff78e50c7d6db6331d66d4db0e378c53",
     "@types/nodemailer": "^7.0.0",
     "dotenv": "^17.0.0",
-    "mongodb": "^7.0.0",
+    "mongodb": "^6.5.0",
     "next": ">=15.3.4",
     "nodemailer": "^7.0.7",
     "react": "^19.0.0",
